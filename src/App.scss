@@ -1,0 +1,8 @@
+$spacer: 50px !default;
+@import '~bootstrap/scss/bootstrap';
+
+.App {
+  .btn-primary {
+    height: 15vh;
+  }
+}
