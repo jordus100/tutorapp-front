@@ -1,22 +1,18 @@
-import axios from "axios";
-const api = axios.create({
-    baseURL: 'http://localhost:4000'
-})
-
+import { Api } from './Api'
 export const UserService = {
 
     registerUser: function(username, password) {
-        return api.post('/users/register', {
+        return Api.post('/users/register', {
             username: username,
             password: password
         })
     },
 
     loginUser: function(username, password) {
-        return api.post('/users/login', {
+        return Api.post('/users/login', {
             username: username,
             password: password
-        }, {withCredentials: true})
+        })
     },
 
     logoutUser: function(username, password) {

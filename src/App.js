@@ -16,12 +16,12 @@ function App() {
         </div>
         <div className="container-fluid mt-4">
           <div className="row justify-content-between mx-2">
-            <Link className="col mx-2" to="/register">
+            <Link className="col mx-2" to="/offers">
               <button className="btn btn-primary w-100 text-light">
                 Przeglądaj listę korepetycji
               </button>
             </Link>
-            <Link className="col mx-2" to="/register">
+            <Link className="col mx-2" to="/offers/post">
               <button className="btn btn-primary w-100 text-light">
                 Zamieść ofertę korepetycji
               </button>

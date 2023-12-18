@@ -9,6 +9,10 @@ import {
 } from "react-router-dom";
 import Register from "./forms/Register";
 import Login from "./forms/Login";
+import GlobalStateProvider from "./services/GlobalStateProvider";
+import AddTutoringOffer from "./forms/AddTutoringOffer";
+import OffersList from "./lists/OffersList";
+import TutoringSignUp from "./forms/TutoringSignUp";
 
 const router = createBrowserRouter([
     {
@@ -22,13 +26,27 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <Login />
+    },
+    {
+        path: "/offers/post",
+        element: <AddTutoringOffer />
+    },
+    {
+        path: "/offers",
+        element: <OffersList />
+    },
+    {
+        path: "/offers/signup",
+        element: <TutoringSignUp />
     }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+      <GlobalStateProvider>
       <RouterProvider router={router} />
+      </GlobalStateProvider>
   </React.StrictMode>
 );
 

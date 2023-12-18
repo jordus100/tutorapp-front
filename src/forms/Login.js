@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useNavigate } from 'react-router-dom';
 import { UserService } from "../services/UserService";
+import {GlobalStateContext} from "../services/GlobalStateProvider";
+
 
 export default function Login() {
+    const [ user, saveUser ] = useContext(GlobalStateContext);
+
     const [username, setUsername] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [message, setMessage] = React.useState('')
@@ -12,6 +16,10 @@ export default function Login() {
     const onSubmit = async (event) => {
         event.preventDefault()
         UserService.loginUser(username, password).then(response => {
+            saveUser({
+                ...user,
+                username: username
+            })
             navigate('/')
         }).catch((err) => {
             setPassword('')
@@ -38,7 +46,7 @@ export default function Login() {
                     <input type="password" minLength="8" className="form-control" id="password" required
                            onChange={event => { setPassword(event.target.value);}} value={ password }></input>
                 </div>
-                <button type="submit" className="btn btn-primary m-2 w-25">Zarejestruj się</button>
+                <button type="submit" className="btn btn-primary m-2 w-25">Zaloguj się</button>
                 <p>{ message }</p>
             </form>
         </>
