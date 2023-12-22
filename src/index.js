@@ -13,6 +13,7 @@ import GlobalStateProvider from "./services/GlobalStateProvider";
 import AddTutoringOffer from "./forms/AddTutoringOffer";
 import OffersList from "./lists/OffersList";
 import TutoringSignUp from "./forms/TutoringSignUp";
+import StudentLessons from "./lists/StudentLessons";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
     {
         path: "/offers/signup",
         element: <TutoringSignUp />
+    },
+    {
+        path: "/lessons/student",
+        element: <StudentLessons />
     }
 ]);
 

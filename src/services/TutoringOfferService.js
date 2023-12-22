@@ -28,16 +28,4 @@ export const TutoringOfferService = {
         }
     },
 
-    signUpForLesson: async function(offerId, date) {
-        try {
-            const res = await Api.post('/offers/signup', {offerId: offerId, date: date})
-            return res.data.message
-        } catch(err) {
-            if (err.response) {
-                throw Error(err.response.data.message)
-            } else {
-                throw Error(err.message)
-            }
-        }
-    }
 }

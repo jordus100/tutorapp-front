@@ -26,7 +26,7 @@ function App() {
                 Zamieść ofertę korepetycji
               </button>
             </Link>
-            <Link className="col mx-2" to="/register">
+            <Link className="col mx-2" to="/lessons/student">
               <button className="btn btn-primary w-100 text-light">
                 Twoje korepetycje
               </button>
