@@ -5,7 +5,7 @@ export const Api = axios.create({
 })
 
 Api.processError = (err) => {
-    if (err.response) {
+    if (err.response.data.message) {
         throw Error(err.response.data.message)
     } else {
         throw Error(err.message)

@@ -14,6 +14,7 @@ import AddTutoringOffer from "./forms/AddTutoringOffer";
 import OffersList from "./lists/OffersList";
 import TutoringSignUp from "./forms/TutoringSignUp";
 import StudentLessons from "./lists/StudentLessons";
+import TutorLessons from "./lists/TutorLessons";
 
 const router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
     {
         path: "/lessons/student",
         element: <StudentLessons />
+    },
+    {
+        path: "/lessons/tutor",
+        element: <TutorLessons />
     }
 ]);
 

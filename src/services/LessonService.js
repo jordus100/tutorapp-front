@@ -27,6 +27,15 @@ export const LessonService = {
         } catch(err) {
             Api.processError(err)
         }
+    },
+
+    cancelStudentLesson: async function(lessonId) {
+        try {
+            const res = await Api.post('/lessons/student/cancel', {lessonId: lessonId})
+            return res.data.message
+        } catch(e) {
+            Api.processError(e)
+        }
     }
 
 }

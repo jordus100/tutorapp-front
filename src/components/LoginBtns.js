@@ -2,9 +2,20 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {GlobalStateContext} from "../services/GlobalStateProvider";
 import {useContext} from "react";
+import {UserService} from "../services/UserService";
 
 export default function LoginBtns() {
-    const [ user ] = useContext(GlobalStateContext);
+    const [ user, saveUser, unsetUser ] = useContext(GlobalStateContext);
+
+    const onLogoutClick = async (event) => {
+        event.preventDefault()
+        UserService.logoutUser().then(() => {
+            unsetUser()
+        }).catch(e => {
+            console.log(e)
+        })
+    }
+
     let buttons
     if (user.username) {
         buttons = (
@@ -13,7 +24,8 @@ export default function LoginBtns() {
                 <button className="btn btn-secondary w-100">{user.username}</button>
             </Link>
             <Link className="w-100" to='/'>
-                <button className="btn btn-secondary mt-2 w-100">Wyloguj się</button>
+                <button className="btn btn-secondary mt-2 w-100"
+                onClick={ async (event) => { return await onLogoutClick(event) } }>Wyloguj się</button>
             </Link>
             </>
         )

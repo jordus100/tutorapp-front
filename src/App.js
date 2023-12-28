@@ -31,9 +31,9 @@ function App() {
                 Twoje korepetycje
               </button>
             </Link>
-            <Link className="col mx-2" to="/register">
+            <Link className="col mx-2" to="/lessons/tutor">
               <button className="btn btn-primary w-100 text-light">
-              Twoje konto
+                Zapisy na twoje korepetycje
               </button>
             </Link>
           </div>

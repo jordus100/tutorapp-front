@@ -15,7 +15,11 @@ export const UserService = {
         })
     },
 
-    logoutUser: function(username, password) {
-
+    logoutUser: function() {
+        try {
+            return Api.post('/users/logout')
+        } catch (e) {
+            Api.processError(e)
+        }
     }
 }

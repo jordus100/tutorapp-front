@@ -9,8 +9,13 @@ const GlobalStateProvider = ({ children }) => {
         sessionStorage.setItem('user', JSON.stringify(newUser))
     }
 
+    const unsetUser = () => {
+        setUser({username: null})
+        sessionStorage.setItem('user', JSON.stringify({username: null}))
+    }
+
     return (
-        <GlobalStateContext.Provider value={[user, saveUser]}>
+        <GlobalStateContext.Provider value={[user, saveUser, unsetUser]}>
             {children}
         </GlobalStateContext.Provider>
     );
